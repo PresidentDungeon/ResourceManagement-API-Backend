@@ -3,5 +3,5 @@ export interface education {
   cityOfInstitution: string,
   language: string,
   typeOfEducation: string,
-  comments: string
+  comments?: string
 }

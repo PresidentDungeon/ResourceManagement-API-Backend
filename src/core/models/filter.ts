@@ -3,8 +3,8 @@ export interface Filter{
   itemsPrPage: number
 
   name?: string
-  statusID?: number
-  roleID?: number
+  occupation?: string
+
   sortingType?: string
   sorting?: string
 }

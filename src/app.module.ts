@@ -2,10 +2,11 @@ import { Module } from "@nestjs/common";
 import { DatabaseModule } from './infrastructure/data-source/postgres/database.module';
 import { ConfigModule } from "@nestjs/config";
 import * as Joi from '@hapi/joi';
-import { ContractorModule } from "./api/contractor.module";
+import { ResumeModule } from "./api/resume.module";
+import { ResumeService } from './core/services/resume.service';
 
 @Module({
-  imports: [ContractorModule, ConfigModule.forRoot({
+  imports: [ResumeModule, ConfigModule.forRoot({
     envFilePath: '.env',
     isGlobal: true,
     validationSchema: Joi.object({
