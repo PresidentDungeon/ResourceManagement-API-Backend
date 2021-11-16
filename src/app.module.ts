@@ -3,7 +3,6 @@ import { DatabaseModule } from './infrastructure/data-source/postgres/database.m
 import { ConfigModule } from "@nestjs/config";
 import * as Joi from '@hapi/joi';
 import { ResumeModule } from "./api/resume.module";
-import { ResumeService } from './core/services/resume.service';
 
 @Module({
   imports: [ResumeModule, ConfigModule.forRoot({

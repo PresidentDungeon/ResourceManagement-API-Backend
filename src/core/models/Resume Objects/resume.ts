@@ -4,6 +4,7 @@ import { education } from "./education";
 import { certificates } from "./certificates";
 
 export interface Resume {
+  ID: number,
   firstName: string,
   middleName: string,
   lastName: string,
