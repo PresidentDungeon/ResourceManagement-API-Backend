@@ -14,7 +14,7 @@ export class ResumeController {
      let createdResume = await this.resumeService.createResume(resume) ;
      return createdResume;
     }
-    catch (e) {console.log(e); throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
+    catch (e) {throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
   }
 
   @Post('createResumes')
@@ -26,12 +26,18 @@ export class ResumeController {
 
   @Get('getResumes')
   async getResumes(@Query() filter: Filter){
+    try{
     return await this.resumeService.getResumes(filter);
+    }
+    catch (e) {throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
   }
 
   @Get('getResumeByID')
   async getResumeByID(@Query() resumeID: any){
+    try{
     return await this.resumeService.getResumeByID(resumeID.ID);
+    }
+    catch (e) {throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
   }
 
 
