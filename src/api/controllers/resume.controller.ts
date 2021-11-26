@@ -40,5 +40,13 @@ export class ResumeController {
     catch (e) {throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
   }
 
+  @Post('getResumesByID')
+  async getResumesByID(@Body() resumeIDs: number[]){
+    try{
+      return await this.resumeService.getResumesByID(resumeIDs);
+    }
+    catch (e) {throw new HttpException(e.message, HttpStatus.BAD_REQUEST);}
+  }
+
 
 }

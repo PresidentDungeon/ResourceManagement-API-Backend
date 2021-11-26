@@ -11,9 +11,7 @@ import { FilterList } from "../models/filterList";
 export class ResumeService implements IResumeService{
 
   constructor(
-    @InjectRepository(ResumeEntity) private resumeRepository: Repository<ResumeEntity>,
-  ) {
-  }
+    @InjectRepository(ResumeEntity) private resumeRepository: Repository<ResumeEntity>) {}
 
   async createResume(resume: Resume): Promise<Resume>{
 
@@ -63,10 +61,8 @@ export class ResumeService implements IResumeService{
     const count = await qb.getCount();
 
     const filterList: FilterList<Resume> = {list: result, totalItems: count};
-
     return filterList;
   }
-
 
   async getResumeByID(ID: number): Promise<Resume> {
 
@@ -86,5 +82,20 @@ export class ResumeService implements IResumeService{
       throw new Error('No resume registered with this ID');
     }
     return foundResume;
+  }
+
+  async getResumesByID(IDs: number[]): Promise<Resume[]> {
+
+    if(IDs.length == 0){return []}
+
+    let qb = this.resumeRepository.createQueryBuilder("resume");
+    qb.leftJoinAndSelect('resume.summary', 'summary');
+    qb.leftJoinAndSelect('resume.workExperience', 'workExperience');
+    qb.leftJoinAndSelect('resume.education', 'education');
+    qb.leftJoinAndSelect('resume.certificates', 'certificates');
+    qb.andWhere('resume.ID IN (:...resumeIDs)', {resumeIDs: IDs});
+    const foundResumes: ResumeEntity[] = await qb.getMany();
+
+    return foundResumes;
   }
 }

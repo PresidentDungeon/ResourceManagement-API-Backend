@@ -9,4 +9,5 @@ export interface IResumeService{
   getResumes(filter: Filter): Promise<FilterList<Resume>>;
 
   getResumeByID(ID: number): Promise<Resume>;
+  getResumesByID(IDs: number[]): Promise<Resume[]>
 }
