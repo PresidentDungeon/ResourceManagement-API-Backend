@@ -1,4 +1,4 @@
-export interface workExperience {
+export interface WorkExperience {
   fromDate: string, //date
   toDate: string, //date
   client: string,

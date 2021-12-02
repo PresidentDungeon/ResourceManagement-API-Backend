@@ -1,4 +1,4 @@
-export interface education {
+export interface Education {
   nameOfInstitution: string,
   cityOfInstitution: string,
   language: string,

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Inject, Post, Put, Query, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, HttpStatus, Inject, Post, Query } from "@nestjs/common";
 import {Filter} from "../../core/models/filter";
 import { IResumeService, IResumeServiceProvider } from "../../core/primary-ports/resume.interface";
 import { Resume } from "../../core/models/Resume Objects/resume";

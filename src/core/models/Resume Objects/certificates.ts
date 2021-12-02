@@ -1,4 +1,4 @@
-export interface certificates {
+export interface Certificates {
   issueDate: string, //date
   expiryDate: string, //date
   certificateTypeID: string,

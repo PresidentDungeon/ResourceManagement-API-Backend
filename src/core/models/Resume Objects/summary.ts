@@ -1,4 +1,4 @@
-export interface summary {
+export interface Summary {
   summaryHeadline: string,
   summaryBody: string
 }
