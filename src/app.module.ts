@@ -15,7 +15,7 @@ import { ResumeModule } from "./api/resume.module";
       POSTGRES_PASSWORD: Joi.string().required(),
       POSTGRES_DB: Joi.string().required(),
       PORT: Joi.number(),
-      FRONTEND_ROUTE: Joi.string().required(),
+      BACKEND_SERVER_ROUTE: Joi.string().required(),
     })
   }), DatabaseModule],
   controllers: [],
